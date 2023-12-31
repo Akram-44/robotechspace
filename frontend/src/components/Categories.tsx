@@ -1,11 +1,10 @@
 
 import Link from "next/link";
 import { Keyboard, Unplug, Mouse, Wifi } from "lucide-react";
-import { getCategories } from "@/helpers/getCategories";
 
 
-const Categories = async () => {
-    const categories = await getCategories()
+const Categories = ({categories}) => {
+    
     return (
         <div className="w-[40%] p-3 mt-10 bg-slate-200">
             <h3 className="font-bold text-lg">Categories</h3>
@@ -15,10 +14,12 @@ const Categories = async () => {
                     className="flex gap-2 mt-3 hover:text-black cursor-pointer duration-200"
                 >
                     <Mouse />
-                    <p>{item.attributes.title}</p>
+                    <p 
+                    // onClick={setCategoryId(item.id)}
+                    >{item.attributes.title}</p>
                 </Link>
                     <div className="h-[1px] w-full bg-designColor inline-flex" />
-                    </li>)}
+                </li>)}
             </ul>
         </div>
     );

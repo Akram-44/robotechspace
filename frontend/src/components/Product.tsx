@@ -11,9 +11,10 @@ import toast, { Toaster } from "react-hot-toast";
 
 interface Item {
   products: ProductType[];
+  categoryId: number;
 }
 
-const Product = ({ products }: Item) => {
+const Product = ({ categoryId,products }: Item) => {
   const perPage = 12
   const [noMoreItems,setNoMoreItems] = useState(false)
   const [page,setPage] = useState({

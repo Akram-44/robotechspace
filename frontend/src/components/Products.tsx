@@ -3,10 +3,13 @@ import Link from "next/link";
 import { Keyboard, Unplug, Mouse, Wifi } from "lucide-react";
 import Product from "./Product";
 import { getProducts } from "@/helpers";
-import Categories from "./Categories";
+import FilterableProducts from "./FilterableProducts";
+import { getCategories } from "@/helpers/getCategories";
 
 const Products = async () => {
   const products = await getProducts();
+  const categories = await getCategories()
+
   return (
     <div className="mt-10">
       <Container>
@@ -16,10 +19,8 @@ const Products = async () => {
             Explore custom layouts designed for seamless electronic shopping.
           </p>
         </div>
-        <div className="flex gap-4">
-<Categories/>
-        <Product products={products} />
-        </div>
+        
+          <FilterableProducts categories={categories} products={products}/>
       </Container>
     </div>
   );
