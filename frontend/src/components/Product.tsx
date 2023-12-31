@@ -64,12 +64,12 @@ console.log()
   const dispatch = useDispatch();
   return (
     <div>
-    <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mt-10">
+    <div className="flex flex-wrap gap-6 mt-10">
       {/* {products.slice(page.start,page.end).map((item) => ( */}
       {products?.map((item) => (
         <div
           key={item._id}
-          className="min-w-[250px] rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
+          className="w-[250px] rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
         >
           {/* <p>http://127.0.0.1:1337{item?.attributes?.image?.data[0]?.url}</p> */}
           <Link href={{ pathname: `/${item?._id}`, query: { _id: item?._id } }}>

@@ -4,7 +4,7 @@ import { ChevronRight       } from "lucide-react";
 const Categories = ({ categoryName, categories, setCategoryName }) => {
     // console.log(categoryId)
     return (
-        <div className="w-[300px] p-3 mt-10 shadow-lg border border-zinc-400 rounded-[.5rem]">
+        <div className="w-[300px] bg-white p-3 mt-10 shadow-lg border border-zinc-400 rounded-[.5rem]">
             <h3 className="font-bold text-lg">Categories</h3>
             <div className="h-[1px] w-full bg-designColor mt-2" ></div>
             <ul className="text-zinc-500 mt-5">

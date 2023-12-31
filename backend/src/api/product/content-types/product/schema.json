@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "product"
+    "displayName": "product",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,11 +16,6 @@
       "type": "string",
       "required": true,
       "default": "product name"
-    },
-    "Rt_id": {
-      "type": "biginteger",
-      "unique": true,
-      "required": true
     },
     "description": {
       "type": "blocks"
@@ -32,12 +28,12 @@
       "type": "decimal"
     },
     "image": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": true,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "isNew": {
       "type": "boolean"
