@@ -1,4 +1,5 @@
 export interface ProductType {
+  attributes: any;
 
   _id: number;
   title: string;

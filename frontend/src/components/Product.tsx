@@ -15,7 +15,7 @@ interface Item {
 
 const Product = ({ products }: Item) => {
 
-const [attributes,id] = products;
+// const [attributes,id] = products;
 // console.log(products)
 
 
