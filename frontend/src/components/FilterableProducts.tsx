@@ -7,6 +7,7 @@ import { AlignJustify  } from 'lucide-react';
 
 function FilterableProducts({ products, categories, categoryProducts }) {
     const [categoryName, setCategoryName] = useState('');
+    const [toggle, setToggle] = useState(true);
     const [productsT, setProductsT] = useState([]);
 
     useEffect(() => {
@@ -30,11 +31,11 @@ function FilterableProducts({ products, categories, categoryProducts }) {
 
     return (
         <div>
-            <div className='border border-black p-1 inline-block'>
+            <div className='cursor-pointer border border-zinc-300 p-1 inline-block' onClick={()=>setToggle(!toggle)}>
                 <AlignJustify />
             </div>
             <div className="flex gap-4 h-full">
-                <Categories categoryName={categoryName} setCategoryName={setCategoryName} categories={categories} />
+                <Categories toggle={toggle} categoryName={categoryName} setCategoryName={setCategoryName} categories={categories} />
                 <Product products={productsT} />
             </div>
         </div>
