@@ -1,25 +1,23 @@
 'use client'
-
-import { ProductType } from "../../../type";
-import Container from "@/components/Container";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
-import FormattedPrice from "@/components/FormattedPrice";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/redux/proSlice";
-import { useSearchParams } from 'next/navigation'
 import { getProduct } from "@/helpers/getProduct";
-import { useEffect, useState } from "react";
+import { ProductType } from "../../../type";
+import Container from "@/components/Container";
+import FormattedPrice from "@/components/FormattedPrice";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
 };
 
-const Page = ({ searchParams }: Props) => {
-  const [product, setProduct] = useState();
-  const searchPar = useSearchParams()
-  const idString = searchPar.get('id');
+const Page: React.FC<Props> = ({ searchParams }: Props) => {
+  const [product, setProduct] = useState<ProductType | undefined>();
+  const searchPar = useSearchParams();
+  const idString = searchPar.get("id");
   const id = Number(idString);
-
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -27,45 +25,23 @@ const Page = ({ searchParams }: Props) => {
         const p = await getProduct(id);
         setProduct(p);
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error("Error fetching products:", error);
       }
     };
 
-    if (typeof window !== 'undefined') {
-      // Run the effect only in the browser environment
+    if (typeof window !== "undefined") {
       fetchProduct();
     }
   }, [id]);
 
-
-
-
-
-
-  // const singleProduct = async (id: number) => {
-  //   const p = await getProduct(id)
-  //   return p
-  //   // const item = products.find((product: ProductType) => product.id === id);
-  //   // return item;
-  // };
-
-  // const product = singleProduct(id);
-  // console.log(product)
   const dispatch = useDispatch();
-  console.log('product', product);
-  // console.log('id :',id)
-  // console.log('id string :',idString)
-  // console.log('product:',product)
-  // console.log('all products:',allProducts)
-  // console.log('pathname:',router.pathname)
-  // console.log('searchparams:',searchParams)
+  console.log("product", product);
 
   return (
     <Container className="flex items-center flex-col md:flex-row px-4 xl:px-0">
       <div className="leaf md:bg-none rounded-[.5rem] bg-fixed w-full md:w-1/2 overflow-hidden bg-zinc-50 md:bg-transparent flex items-center justify-center p-5">
         <Image
-          // src={`http://127.0.0.1:1337${product?.attributes?.image?.data[0]?.attributes?.url}`}
-          src={''}
+          src={`http://127.0.0.1:1337${product?.attributes?.image?.data[0]?.attributes?.url || ""}`}
           alt="product image"
           width={500}
           height={500}
@@ -87,7 +63,9 @@ const Page = ({ searchParams }: Props) => {
         <p>
           You saved{" "}
           <FormattedPrice
-            amount={(product?.attributes?.previousPrice! - product?.attributes?.price!) || 0}
+            amount={
+              (product?.attributes?.previousPrice! - product?.attributes?.price!) || 0
+            }
             className="text-base font-semibold bg-designColor underline underline-offset-2"
           />{" "}
           from this product.
@@ -102,17 +80,16 @@ const Page = ({ searchParams }: Props) => {
           <p className="text-designColor font-semibold">New Arrival</p>
         )}
         <p>
-          Brand: <span className="font-semibold">{ }</span>
+          Brand: <span className="font-semibold">{product?.attributes?.brand}</span>
         </p>
         <p>
-          Category: <span className="font-semibold">{ }</span>
+        Quantity:{" "}
+          <span className="font-semibold">{product?.attributes?.quantity}</span>
         </p>
-        <p>{product?.attributes?.description[0].children[0].text}</p>
+        <p className="">{product?.attributes?.description[0].children[0].text}</p>
       </div>
     </Container>
-
   );
 };
 
 export default Page;
-
