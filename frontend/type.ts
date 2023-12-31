@@ -1,5 +1,5 @@
 export interface ProductType {
-  id: Key | null | undefined;
+  id: number | null | undefined;
   attributes: any;
 
   _id: number;

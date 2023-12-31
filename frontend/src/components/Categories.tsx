@@ -4,12 +4,12 @@ import { ChevronRight       } from "lucide-react";
 const Categories = ({ toggle,categoryName, categories, setCategoryName }) => {
     // console.log(categoryId)
     return (
-        <div className={`${toggle?'w-0':'min-w-[300px] w-[300px] p-3 border '} overflow-hidden bg-white mt-5 shadow-lg border-zinc-400 rounded-[.5rem]`}>
-            <h3 className="font-bold text-lg">Categories</h3>
+        <div className={`${!toggle?'w-0':'min-w-[300px] w-[300px] p-3 border '} z-10 absolute lg:relative overflow-hidden bg-white mt-5 shadow-lg border-zinc-400 rounded-md`}>
+            <h3 className="font-bold text-lg mt-3">Categories</h3>
             <div className="h-[1px] w-full bg-designColor mt-2" ></div>
-            <ul className="text-zinc-500 mt-5">
+            <ul className="text-zinc-600">
                 {categories?.map(item => <li key={item.id}
-                    className="font-bold group items-center text-lg hover:bg-zinc-200 p-2 rounded-[.5rem] flex mt-3 hover:text-black cursor-pointer "
+                    className="font-semibold border-b group items-center text-lg hover:bg-zinc-100 p-3  flex hover:text-black cursor-pointer "
                     onClick={() => setCategoryName(item.attributes.title)}
                 >
                     <p

@@ -1,7 +1,6 @@
 import Container from "./Container";
 import Link from "next/link";
 import { Keyboard, Unplug, Mouse, Wifi } from "lucide-react";
-import Product from "./Product";
 import { getProducts } from "@/helpers";
 import FilterableProducts from "./FilterableProducts";
 import { getCategories } from "@/helpers/getCategories";
@@ -20,8 +19,7 @@ const Products = async () => {
             Explore custom layouts designed for seamless electronic shopping.
           </p>
         </div>
-        
-          <FilterableProducts categoryProducts={categoryProducts} categories={categories} products={products}/>
+          <FilterableProducts categories={categories} />
       </Container>
     </div>
   );

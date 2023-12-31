@@ -21,12 +21,12 @@ const Product = ({ products }: Item) => {
   };
   const dispatch = useDispatch();
   return (
-    <div className=' h-[800px] overflow-y-auto'>
+    <div className=' h-[800px] flex-1 overflow-y-auto'>
       <div className="flex flex-wrap gap-6 mt-5">
         {products?.map((item) => (
           <div
             key={item.id}
-            className="w-[250px] rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
+            className="w-[250px] lg:w-[31%] rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
           >
             <Link href={{ pathname: `/${item?.id}`, query: { id: item?.id } }}>
               <Image

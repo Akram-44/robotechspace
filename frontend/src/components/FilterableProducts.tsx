@@ -5,16 +5,16 @@ import Product from './Product';
 import { getCategoryProducts } from '@/helpers/getCategoryProducts';
 import { AlignJustify  } from 'lucide-react';
 
-function FilterableProducts({ products, categories, categoryProducts }) {
-    const [categoryName, setCategoryName] = useState('');
+function FilterableProducts({ categories }) {
+    const [categoryName, setCategoryName] = useState('sensor');
     const [toggle, setToggle] = useState(true);
-    const [productsT, setProductsT] = useState([]);
+    const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
                 const p = await getCategoryProducts(categoryName);
-                setProductsT(p);
+                setProducts(p);
                 console.log(p)
             } catch (error) {
                 console.error('Error fetching products:', error);
@@ -31,12 +31,12 @@ function FilterableProducts({ products, categories, categoryProducts }) {
 
     return (
         <div>
-            <div className='cursor-pointer border border-zinc-300 p-1 inline-block' onClick={()=>setToggle(!toggle)}>
+            <div className='lg:hidden inline-block cursor-pointer border border-zinc-300 p-1 inline-block' onClick={()=>setToggle(!toggle)}>
                 <AlignJustify />
             </div>
-            <div className="flex gap-4">
+            <div className="relative flex gap-4 m-auto ">
                 <Categories toggle={toggle} categoryName={categoryName} setCategoryName={setCategoryName} categories={categories} />
-                <Product products={productsT} />
+                <Product products={products} />
             </div>
         </div>
     );
