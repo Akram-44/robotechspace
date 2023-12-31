@@ -73,6 +73,7 @@ const Banner = () => {
   };
   return (
     <div className="lg:min-h-[500px] relative">
+              
       <Slider {...settings}>
         <div className={`${dotActive === 0 ? 'z-10' : 'z-0'} leaf lg:bg-none lg:bg-transparent w-full py-20 lg:py-0 lg:h-[500px] bg-slate-200 relative`}>
           <div className="w-full lg:w-1/3 hidden lg:inline-block h-full bg-designColor z-0 relative">

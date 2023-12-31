@@ -58,7 +58,7 @@ const Product = ({ products }: Item) => {
 
   const dispatch = useDispatch();
   return (
-    <>
+    <div>
     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mt-10">
       {products.slice(page.start,page.end).map((item) => (
         <div
@@ -134,7 +134,7 @@ const Product = ({ products }: Item) => {
           <span className={`transition-opacity duration-200 ${noMoreItems ? 'opacity-100' : 'opacity-0'} text-red-500 font-bold`}>
   No More Items
 </span>      </div>
-      </>
+      </div>
   );
 };
 

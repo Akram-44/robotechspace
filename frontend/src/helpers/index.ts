@@ -11,21 +11,7 @@ import {
 // export const getBoards = async()=> boardProducts
 // export const getWifi = async()=> wifiProducts
 // export const getIcs = async()=> icsProducts
-// export const getCategories = async () => {
-//   try {
-//     const response = await fetch('http://127.0.0.1:1337/api/categories');
-    
-//     if (!response.ok) {
-//       throw new Error(`HTTP error! Status: ${response.status}`);
-//     }
-    
-//     const data = await response.json();
-//     return data;
-//   } catch (error:any) {
-//     console.error('Error fetching categories:', error.message);
-//     throw error; // You might want to handle the error or propagate it up to the caller
-//   }
-// };
+
 
 export const getProducts = async () => {
   const res = await fetch(

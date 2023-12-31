@@ -1,0 +1,27 @@
+
+import Link from "next/link";
+import { Keyboard, Unplug, Mouse, Wifi } from "lucide-react";
+import { getCategories } from "@/helpers/getCategories";
+
+
+const Categories = async () => {
+    const categories = await getCategories()
+    return (
+        <div className="w-[40%] p-3 mt-10 bg-slate-200">
+            <h3>Categories</h3>
+            <ul className="text-zinc-500 mt-5">
+                {categories?.map(item => <li key={item.id}><Link
+                    href={"/sensor"}
+                    className="flex gap-2 mt-3 hover:text-black cursor-pointer duration-200"
+                >
+                    <Mouse />
+                    <p>{item.attributes.title}</p>
+                </Link>
+                    {/* <div className="h-7 w-[1px] bg-designColor inline-flex" /> */}
+                    </li>)}
+            </ul>
+        </div>
+    );
+};
+
+export default Categories;
