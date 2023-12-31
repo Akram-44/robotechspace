@@ -1,7 +1,7 @@
 export async function getCategoryProducts(categoryName:string) {
   try {
     const res = await fetch(
-      `http://127.0.0.1:1337/api/products?filters[$and][0][categories][title][$eq]=${categoryName}`
+      `http://127.0.0.1:1337/api/products?filters[$and][0][categories][title][$eq]=${categoryName}&populate=*`
     );
     const response = await res.json();
     return response.data;

@@ -5,7 +5,8 @@ const nextConfig = {
       "i.ibb.co",
       "lh3.googleusercontent.com",
       "avatars.githubusercontent.com",
-      'store.fut-electronics.com'
+      'store.fut-electronics.com',
+      '127.0.0.1'
     ],
   },
 };

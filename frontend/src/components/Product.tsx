@@ -60,7 +60,7 @@ const [attributes,id] = products;
   const isFavorite = (productId: any) => {
     return favoriteData.some((favoriteItem) => favoriteItem._id === productId);
   };
-
+console.log()
   const dispatch = useDispatch();
   return (
     <div>
@@ -71,9 +71,10 @@ const [attributes,id] = products;
           key={item._id}
           className="rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
         >
+          {/* <p>http://127.0.0.1:1337{item?.attributes?.image?.data[0]?.url}</p> */}
           <Link href={{ pathname: `/${item?._id}`, query: { _id: item?._id } }}>
             <Image
-              src={item?.image}
+              src={`http://127.0.0.1:1337${item?.attributes?.image?.data[0]?.attributes?.url}`}
               alt="Product image"
               width={200}
               height={200}
