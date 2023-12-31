@@ -8,7 +8,7 @@ const Categories = async () => {
     const categories = await getCategories()
     return (
         <div className="w-[40%] p-3 mt-10 bg-slate-200">
-            <h3>Categories</h3>
+            <h3 className="font-bold text-lg">Categories</h3>
             <ul className="text-zinc-500 mt-5">
                 {categories?.map(item => <li key={item.id}><Link
                     href={"/sensor"}
@@ -17,7 +17,7 @@ const Categories = async () => {
                     <Mouse />
                     <p>{item.attributes.title}</p>
                 </Link>
-                    {/* <div className="h-7 w-[1px] bg-designColor inline-flex" /> */}
+                    <div className="h-[1px] w-full bg-designColor inline-flex" />
                     </li>)}
             </ul>
         </div>
