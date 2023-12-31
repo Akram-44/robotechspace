@@ -34,7 +34,7 @@ function FilterableProducts({ products, categories, categoryProducts }) {
             <div className='cursor-pointer border border-zinc-300 p-1 inline-block' onClick={()=>setToggle(!toggle)}>
                 <AlignJustify />
             </div>
-            <div className="flex gap-4 h-full">
+            <div className="flex gap-4">
                 <Categories toggle={toggle} categoryName={categoryName} setCategoryName={setCategoryName} categories={categories} />
                 <Product products={productsT} />
             </div>
