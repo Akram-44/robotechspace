@@ -21,7 +21,7 @@ export const proSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const existingProduct = state.productData.find(
-        (item: ProductType) => item?._id === action.payload._id
+        (item: ProductType) => item?.id === action.payload.id
       );
 
       if (existingProduct) {
@@ -32,13 +32,13 @@ export const proSlice = createSlice({
     },
     increaseQuantity: (state, action) => {
       const existingProduct = state.productData.find(
-        (item: ProductType) => item._id === action.payload._id
+        (item: ProductType) => item.id === action.payload.id
       );
       existingProduct && existingProduct.quantity++;
     },
     decreaseQuantity: (state, action) => {
       const existingProduct = state.productData.find(
-        (item: ProductType) => item._id === action.payload._id
+        (item: ProductType) => item.id === action.payload.id
       );
       if (existingProduct?.quantity === 1) {
         existingProduct.quantity === 1;
@@ -48,7 +48,7 @@ export const proSlice = createSlice({
     },
     deleteProduct: (state, action) => {
       state.productData = state.productData.filter(
-        (item) => item._id !== action.payload
+        (item) => item.id !== action.payload
       );
     },
     resetCart: (state) => {
@@ -56,11 +56,11 @@ export const proSlice = createSlice({
     },
     addToFavorite: (state, action) => {
       const existingProduct = state.favoriteData.find(
-        (item: ProductType) => item._id === action.payload._id
+        (item: ProductType) => item.id === action.payload.id
       );
       if (existingProduct) {
         state.favoriteData = state.favoriteData.filter(
-          (item) => item._id !== action.payload._id
+          (item) => item.id !== action.payload.id
         );
       } else {
         state.favoriteData.push(action.payload);
@@ -68,7 +68,7 @@ export const proSlice = createSlice({
     },
     deleteFavorite: (state, action) => {
       state.favoriteData = state.favoriteData.filter(
-        (item) => item._id !== action.payload
+        (item) => item.id !== action.payload
       );
     },
     resetFavorite: (state) => {
@@ -82,7 +82,7 @@ export const proSlice = createSlice({
     },
     addOrder: (state, action) => {
       const existingOrder = state.orderData.find(
-        (item: ProductType) => item._id === action.payload._id
+        (item: ProductType) => item.id === action.payload.id
       );
       if (existingOrder) {
         state.orderData.push(action.payload);

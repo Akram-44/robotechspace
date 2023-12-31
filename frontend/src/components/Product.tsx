@@ -15,22 +15,20 @@ interface Item {
 
 const Product = ({ products }: Item) => {
 
-
   const { favoriteData } = useSelector((state: StateProps) => state.pro);
   const isFavorite = (productId: any) => {
-    return favoriteData.some((favoriteItem) => favoriteItem._id === productId);
+    return favoriteData.some((favoriteItem) => favoriteItem.id === productId);
   };
-  console.log()
   const dispatch = useDispatch();
   return (
     <div className=' h-[800px] overflow-y-auto'>
       <div className="flex flex-wrap gap-6 mt-5">
         {products?.map((item) => (
           <div
-            key={item._id}
+            key={item.id}
             className="w-[250px] rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
           >
-            <Link href={{ pathname: `/${item?._id}`, query: { _id: item?._id } }}>
+            <Link href={{ pathname: `/${item?.id}`, query: { id: item?.id } }}>
               <Image
                 src={`http://127.0.0.1:1337${item?.attributes?.image?.data[0]?.attributes?.url}`}
                 alt="Product image"
@@ -40,13 +38,13 @@ const Product = ({ products }: Item) => {
               />
             </Link>
             <Heart
-              fill={isFavorite(item._id) ? "red" : "black"}
+              fill={isFavorite(item.id) ? "red" : "black"}
               onClick={() => {
                 dispatch(addToFavorite(item));
-                if (isFavorite(item?._id)) {
-                  toast.error(`${item.title} removed from favorites!`);
+                if (isFavorite(item?.id)) {
+                  toast.error(`${item?.attributes?.title} removed from favorites!`);
                 } else {
-                  toast.success(`${item.title} added to favorites!`);
+                  toast.success(`${item?.attributes?.title} added to favorites!`);
                 }
               }}
               className="absolute top-4 right-4 text-zinc-500 w-5 h-5 hover:text-black cursor-pointer duration-200"
