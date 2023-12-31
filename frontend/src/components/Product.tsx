@@ -11,10 +11,14 @@ import toast, { Toaster } from "react-hot-toast";
 
 interface Item {
   products: ProductType[];
-  categoryId: number;
 }
 
-const Product = ({ categoryId,products }: Item) => {
+const Product = ({ products }: Item) => {
+
+const [attributes,id] = products;
+// console.log(products)
+
+
   const perPage = 12
   const [noMoreItems,setNoMoreItems] = useState(false)
   const [page,setPage] = useState({
@@ -61,7 +65,8 @@ const Product = ({ categoryId,products }: Item) => {
   return (
     <div>
     <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 mt-10">
-      {products.slice(page.start,page.end).map((item) => (
+      {/* {products.slice(page.start,page.end).map((item) => ( */}
+      {products?.map((item) => (
         <div
           key={item._id}
           className="rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
@@ -89,27 +94,27 @@ const Product = ({ categoryId,products }: Item) => {
           />
           <div className="hidden sm:block p-4 bg-zinc-100 group-hover:bg-zinc-50 group-hover:shadow-xl duration-300">
             <p className="whitespace-nowrap text-ellipsis overflow-hidden group-hover:text-designColor duration-300">
-              {item?.title}
+              {item?.attributes?.title}
             </p>
             <p className="font-semibold">
-              <FormattedPrice amount={item?.price} />
+              <FormattedPrice amount={item?.attributes?.price} />
             </p>
             <div className="flex items-center justify-between text-sm mt-2">
               <button
                 onClick={() => {
                   dispatch(addToCart(item)),
-                    toast.success(`${item?.title} is added to Cart!`);
+                    toast.success(`${item?.attributes?.title} is added to Cart!`);
                 }}
                 className="uppercase font-semibold hover:text-designColor duration-300"
               >
                 Add to cart
               </button>
-              <Link
+              {/* <Link
                 className="uppercase font-semibold hover:text-designColor duration-300"
-                href={{ pathname: `/${item?._id}`, query: { _id: item?._id } }}
-              >
+                href={{ pathname: `/${item?.attributes?._id}`, query: { _id: item?._id } }}
+              > */}
                 More Info
-              </Link>
+              {/* </Link> */}
             </div>
           </div>
         </div>

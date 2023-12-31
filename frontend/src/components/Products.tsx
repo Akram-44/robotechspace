@@ -5,11 +5,12 @@ import Product from "./Product";
 import { getProducts } from "@/helpers";
 import FilterableProducts from "./FilterableProducts";
 import { getCategories } from "@/helpers/getCategories";
+import { getCategoryProducts } from "@/helpers/getCategoryProducts";
 
 const Products = async () => {
   const products = await getProducts();
   const categories = await getCategories()
-
+  const categoryProducts = await getCategoryProducts('');
   return (
     <div className="mt-10">
       <Container>
@@ -20,7 +21,7 @@ const Products = async () => {
           </p>
         </div>
         
-          <FilterableProducts categories={categories} products={products}/>
+          <FilterableProducts categoryProducts={categoryProducts} categories={categories} products={products}/>
       </Container>
     </div>
   );
