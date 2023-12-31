@@ -69,7 +69,7 @@ console.log()
       {products?.map((item) => (
         <div
           key={item._id}
-          className="rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
+          className="min-w-[250px] rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
         >
           {/* <p>http://127.0.0.1:1337{item?.attributes?.image?.data[0]?.url}</p> */}
           <Link href={{ pathname: `/${item?._id}`, query: { _id: item?._id } }}>

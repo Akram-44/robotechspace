@@ -1,6 +1,6 @@
 
 import Link from "next/link";
-import { Keyboard, Unplug, Mouse, Wifi } from "lucide-react";
+import { ChevronRight       } from "lucide-react";
 const Categories = ({ categoryName, categories, setCategoryName }) => {
     // console.log(categoryId)
     return (
@@ -9,13 +9,12 @@ const Categories = ({ categoryName, categories, setCategoryName }) => {
             <div className="h-[1px] w-full bg-designColor mt-2" ></div>
             <ul className="text-zinc-500 mt-5">
                 {categories?.map(item => <li key={item.id}
-                    className="font-bold items-center text-lg hover:bg-zinc-200 p-2 rounded-[.5rem] flex gap-2 mt-3 hover:text-black cursor-pointer "
+                    className="font-bold group items-center text-lg hover:bg-zinc-200 p-2 rounded-[.5rem] flex mt-3 hover:text-black cursor-pointer "
                     onClick={() => setCategoryName(item.attributes.title)}
                 >
-                    <i>{item.id}</i>
-                    <Mouse />
                     <p
                     >{item.attributes.title.charAt(0).toUpperCase() + item.attributes.title.slice(1)}</p>
+                    <ChevronRight  className="mt-1 transform transition-transform group-hover:translate-x-2"     size={18}/>
                 </li>)}
             </ul>
         </div>
