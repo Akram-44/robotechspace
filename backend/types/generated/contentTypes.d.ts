@@ -418,7 +418,12 @@ export interface ApiProductProduct extends Schema.CollectionType {
     image: Attribute.Media & Attribute.Required;
     isNew: Attribute.Boolean;
     brand: Attribute.String;
-    quantity: Attribute.Integer;
+    quantity: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 1;
+      }>;
     categories: Attribute.Relation<
       'api::product.product',
       'manyToMany',

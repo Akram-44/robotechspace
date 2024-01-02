@@ -35,9 +35,6 @@ export const proSlice = createSlice({
         (item: ProductType) => item?.id === action.payload.id
       );
       existingProduct && existingProduct.attributes.quantity++;
-      console.log(state.productData);
-      console.log(action);
-      console.log(existingProduct) // existingProduct?.attributes?.quantity++
     },
     decreaseQuantity: (state, action) => {
       const existingProduct = state.productData.find(

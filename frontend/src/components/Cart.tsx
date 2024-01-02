@@ -44,11 +44,11 @@ const Cart = () => {
     let amt = 0;
     let rowAmt = 0;
     productData.map((item: ProductType) => {
-      amt += item.price * item.quantity;
+      amt += item.attributes.price * item.attributes.quantity;
       return;
     });
     productData.map((item: ProductType) => {
-      rowAmt += item?.previousPrice * item?.quantity;
+      rowAmt += item?.attributes.previousPrice * item?.attributes.quantity;
     });
     setTotalAmt(amt);
     setRowPrice(rowAmt);
