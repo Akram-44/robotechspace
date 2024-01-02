@@ -858,7 +858,7 @@ export interface ApiSliderSlider extends Schema.CollectionType {
   info: {
     singularName: 'slider';
     pluralName: 'sliders';
-    displayName: 'slide';
+    displayName: 'slider';
     description: '';
   };
   options: {

@@ -96,32 +96,64 @@ const Banner: React.FC<BannerProps> = () => {
     <div className="lg:min-h-[500px] relative">
       <Slider {...settings}>
         {slides &&
-          slides.map((slide) => (
+          slides.map((slide,index) => (
             <div
-    key={slide?.id}
-              className={`${dotActive === slide?.id ? "z-10" : "z-0"} leaf lg:bg-none lg:bg-transparent w-full py-20 lg:py-0 lg:h-[500px] bg-slate-200 relative`}
+              key={slide?.id}
+              className={`${dotActive === index ? "z-10" : "z-0"} lg:bg-none lg:bg-transparent w-full pb-5 h-[450px] bg-slate-200 relative`}
             >
-              <div className="w-full lg:w-1/3 hidden lg:inline-block h-full bg-designColor z-0 relative">
+              <div className="w-full lg:w-1/3 flex items-center justify-center lg:inline-block h-[200px] lg:h-full bg-zinc-800 lg:bg-designColor z-0 relative">
                 <Image
-                  src={sliderOne}
+                  src={`http://127.0.0.1:1337${slide?.attributes?.image?.data?.attributes?.url}`}
+                  width={200}
+                  height={200}
                   alt="sliderone"
-                  className="absolute object-cover right-0 top-10 lg:-right-48 w-[80%]"
+                  className="rounded-[.5rem] lg:absolute object-cover  lg:top-10 lg:-right-44 lg:w-[80%]"
                   priority
                 />
               </div>
-              <div className="lg:absolute lg:top-1/2 lg:left-2/3 transform lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col items-center gap-5">
+              <div className="h-300 p-5 lg:absolute lg:top-1/2 lg:left-2/3 transform lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col items-center gap-5">
                 <p className="text-2xl font-bold uppercase text-center">{slide?.attributes?.heading}</p>
                 <p className="w-96 px-4 text-center text-zinc-600">{slide?.attributes?.sub_heading}</p>
                 <Link href={slide?.attributes?.link_url} passHref>
-                  <a className="text-base font-medium text-white bg-designColor rounded-md px-4 py-2">{slide?.attributes?.link_text}</a>
+                  <span className="text-base font-medium text-white bg-designColor rounded-md px-4 py-2">{slide?.attributes?.link_text}</span>
                 </Link>
               </div>
             </div>
           ))}
       </Slider>
-      <div className="border border-b-designColor rounded-sm h-20 bg-white absolute left-1/2 -bottom-10 transform -translate-x-1/2 hidden lg:inline-flex items-center gap-x-12 p-10">
-        {/* Rest of the component remains unchanged */}
-      </div>
+      <div className=" rounded-sm h-20 absolute left-1/2 -bottom-10 transform -translate-x-1/2 hidden lg:inline-flex items-center gap-x-12 p-10">
+        <div className="border border-b-designColor rounded-sm h-20 bg-white absolute left-1/2 -bottom-10 transform -translate-x-1/2 hidden lg:inline-flex items-center gap-x-12 p-10">
+          <div className="flex items-center gap-5 w-60">
+            <Clock className="text-designColor w-8 h-8" />
+            <div>
+              <p>Saterday - Thursday</p>
+              <p className="font-semibold">Open</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-5 w-60">
+            <Smartphone className="text-designColor w-8 h-8" />
+            <div>
+              <a className="select-text" href="tel:1102071544">+20 11 0207 1544</a>
+              <p className="font-semibold">Order by Phone</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-5 w-60">
+            <Map className="text-designColor w-8 h-8" />
+            <div>
+              <a className="text-sm hover:underline" href="https://www.google.com/maps/search/%D8%A8%D9%86%D9%83+%D8%A7%D9%84%D8%A5%D8%B3%D9%83%D9%86%D8%AF%D8%B1%D9%8A%D9%87%E2%80%AD/@29.075876,31.0982042,17z?entry=ttu">
+                بنى سويف, امام بنك الاسكندرية
+              </a>
+              <p className="font-semibold">Address</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-5 w-60">
+            <MailPlus className="text-designColor w-8 h-8" />
+            <div>
+              <a className="text-sm hover:underline" href="mailto:robotechspace8@gmail.com">robotechspace8@gmail.com</a>
+              <p className="font-semibold">Email us</p>
+            </div>
+          </div>
+        </div>      </div>
     </div>
   );
 };
