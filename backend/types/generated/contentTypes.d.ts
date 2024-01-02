@@ -861,7 +861,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     title: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'product name'>;
-    description: Attribute.Blocks;
     price: Attribute.Decimal & Attribute.Required;
     previousPrice: Attribute.Decimal;
     image: Attribute.Media & Attribute.Required;
@@ -878,6 +877,7 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'manyToMany',
       'api::category.category'
     >;
+    description: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

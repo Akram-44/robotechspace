@@ -14,7 +14,7 @@ export const POST = async (request: NextRequest) => {
         unit_amount: item?.attributes?.price * 100,
         product_data: {
           name: item?.attributes?.title,
-          // description:  item?.attributes?.description[0].children[0].text || item?.attributes?.description ,
+          description: item?.attributes?.description ,
           images: [`http://127.0.0.1:1337${item?.attributes?.image?.data[0]?.attributes?.url}`],
         },
       },

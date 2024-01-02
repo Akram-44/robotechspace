@@ -17,9 +17,6 @@
       "required": true,
       "default": "product name"
     },
-    "description": {
-      "type": "blocks"
-    },
     "price": {
       "type": "decimal",
       "required": true
@@ -52,6 +49,9 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "products"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
