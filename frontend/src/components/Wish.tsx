@@ -16,7 +16,6 @@ const Wish = () => {
     return (
         <>
             {favoriteData.length > 0 ? (
-
                 <div className="mt-5 flex flex-col">
                     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
                         <table className="w-full text-sm text-left">
