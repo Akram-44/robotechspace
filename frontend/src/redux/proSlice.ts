@@ -32,18 +32,21 @@ export const proSlice = createSlice({
     },
     increaseQuantity: (state, action) => {
       const existingProduct = state.productData.find(
-        (item: ProductType) => item.id === action.payload.id
+        (item: ProductType) => item?.id === action.payload.id
       );
-      existingProduct && existingProduct.quantity++;
+      existingProduct && existingProduct.attributes.quantity++;
+      console.log(state.productData);
+      console.log(action);
+      console.log(existingProduct) // existingProduct?.attributes?.quantity++
     },
     decreaseQuantity: (state, action) => {
       const existingProduct = state.productData.find(
-        (item: ProductType) => item.id === action.payload.id
+        (item: ProductType) => item?.id === action.payload.id
       );
       if (existingProduct?.quantity === 1) {
-        existingProduct.quantity === 1;
+        existingProduct.quantity = 1;
       } else {
-        existingProduct && existingProduct.quantity--;
+        existingProduct && existingProduct.attributes.quantity--;
       }
     },
     deleteProduct: (state, action) => {
