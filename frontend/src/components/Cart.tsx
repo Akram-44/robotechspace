@@ -72,7 +72,6 @@ const Cart = () => {
       }),
     });
     const data = await response.json();
-
     if (response.ok) {
       // await dispatch(saveOrder({ order: productData, id: data.id }));
       stripe?.redirectToCheckout({ sessionId: data.id });
@@ -83,18 +82,18 @@ const Cart = () => {
     }
   };
   // console.log('cart', productData)
-  const handleDecreasement = (item:ProductType) => {
+  const handleDecreasement = (item: ProductType) => {
     if (item?.attributes?.quantity > 1) {
       dispatch(decreaseQuantity(item)) &&
         toast.success(
           "Quantity decreased Successfully!"
         )
-      
+
     } else {
       toast.error("Can not delete less than 1")
     }
 
-  
+
   }
   return (
     <>
