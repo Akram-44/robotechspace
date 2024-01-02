@@ -809,6 +809,7 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     singularName: 'course';
     pluralName: 'courses';
     displayName: 'course';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -821,6 +822,12 @@ export interface ApiCourseCourse extends Schema.CollectionType {
     isNew: Attribute.Boolean;
     brand: Attribute.String;
     image: Attribute.Media & Attribute.Required;
+    quantity: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 1;
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
