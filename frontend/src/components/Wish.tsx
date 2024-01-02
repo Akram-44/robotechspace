@@ -34,7 +34,7 @@ const Wish = () => {
                                 </tr>
                             </thead>
                             {favoriteData.map((item: ProductType) => (
-                                <tbody key={item?._id}>
+                                <tbody key={item?.id}>
 
                                     <tr className="bg-white border-b-[1px] border-b-zinc-300">
                                         <th
@@ -42,29 +42,29 @@ const Wish = () => {
                                             className="flex items-center gap-3"
                                         >
                                             <Image
-                                                src={item?.image}
+                                                src={`http://127.0.0.1:1337${item?.attributes?.image?.data[0]?.attributes?.url}`}
                                                 alt="proudct image"
                                                 width={500}
                                                 height={500}
                                                 className="w-24 object-contain"
                                             />
                                             <p className="text-ellipsis overflow-hidden whitespace-nowrap w-[70%] text-base font-medium text-black">
-                                                {item?.title}
+                                                {item?.attributes?.title}
                                             </p>
                                         </th>
                                         <td className="hidden sm:table-cell ">
-                                            <FormattedPrice amount={item?.price} />
+                                            <FormattedPrice amount={item?.attributes?.price} />
                                         </td>
                                         <td className="">
                                             <div className=" flex justify-center items-center gap-3">
-                                            <Link className="hover:text-designColor" href={{ pathname: `/${item?._id}`, query: { _id: item?._id } }}>
+                                            <Link className="hover:text-designColor" href={{ pathname: `/${item?.id}`, query: { id: item?.id } }}>
                                                     <Link2Icon />
                                                 </Link>
                                                 <X
                                                     onClick={() => {
-                                                        dispatch(deleteFavorite(item?._id)),
+                                                        dispatch(deleteFavorite(item?.id)),
                                                             toast.success(
-                                                                `${item.title} is removed from Wishlist!`
+                                                                `${item?.attributes?.title} is removed from Wishlist!`
                                                             );
                                                     }}
                                                     className="w-4 h-4 hover:text-red-600 cursor-pointer duration-200"
