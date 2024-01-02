@@ -11,9 +11,10 @@ import toast, { Toaster } from "react-hot-toast";
 
 interface Item {
   products: ProductType[];
+  prefix: string
 }
 
-const Product = ({ products }: Item) => {
+const Product = ({ products, prefix }: Item) => {
 
   const { favoriteData } = useSelector((state: StateProps) => state.pro);
   const isFavorite = (productId: any) => {
@@ -28,12 +29,12 @@ const Product = ({ products }: Item) => {
             key={item.id}
             className="w-[250px] lg:w-[31%] rounded-[.5rem] p-3 relative bg-white group border-[1px] border-zinc-200 hover:border-zinc-400 duration-300 hover:shadow-xl overflow-hidden"
           >
-            <Link href={{ pathname: `/${item?.id}`, query: { id: item?.id } }}>
+            <Link href={{ pathname: `/id_${item?.id}`, query: { id: item?.id, prefix: prefix } }}>
               <Image
                 src={`http://127.0.0.1:1337${item?.attributes?.image?.data[0]?.attributes?.url}`}
                 alt="Product image"
                 width={200}
-                height={200}
+                height={300}
                 className="m-auto object-contain lg:object-contain group-hover:scale-105 duration-300"
               />
             </Link>

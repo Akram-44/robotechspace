@@ -18,11 +18,12 @@ const Page: React.FC<Props> = ({ searchParams }: Props) => {
   const searchPar = useSearchParams();
   const idString = searchPar.get("id");
   const id = Number(idString);
-
+  const prefix = searchPar.get("prefix");
+  console.log(prefix)
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const p = await getProduct(id);
+        const p = await getProduct(id, prefix??"");
         setProduct(p);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -32,7 +33,7 @@ const Page: React.FC<Props> = ({ searchParams }: Props) => {
     if (typeof window !== "undefined") {
       fetchProduct();
     }
-  }, [id]);
+  }, [id, prefix]);
 
   const dispatch = useDispatch();
   console.log("product", product);
@@ -83,10 +84,10 @@ const Page: React.FC<Props> = ({ searchParams }: Props) => {
           Brand: <span className="font-semibold">{product?.attributes?.brand}</span>
         </p>
         <p>
-        Quantity:{" "}
+          Quantity:{" "}
           <span className="font-semibold">{product?.attributes?.quantity}</span>
         </p>
-        <p className="">{product?.attributes?.description[0].children[0].text}</p>
+        <p className="">{prefix === 'pr' ? product?.attributes?.description[0].children[0].text : product?.attributes?.description}</p>
       </div>
     </Container>
   );
