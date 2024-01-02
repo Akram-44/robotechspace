@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { useState } from "react"; // Import useState from React
 import { ProductType } from "../../type";
-const Categories = ({ toggle, categoryName, categories, setCategoryName }) => {
+const Categories = ({ toggle, categories, setCategoryName }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   return (

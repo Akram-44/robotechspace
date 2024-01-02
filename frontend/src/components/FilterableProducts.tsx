@@ -27,7 +27,6 @@ function FilterableProducts({ categories }) {
         }
     }, [categoryName]);
 
-    console.log('cat id:', categoryName);
 
     return (
         <div>
@@ -35,7 +34,7 @@ function FilterableProducts({ categories }) {
                 <AlignJustify />
             </div>
             <div className="relative flex gap-4 m-auto ">
-                <Categories toggle={toggle} categoryName={categoryName} setCategoryName={setCategoryName} categories={categories} />
+                <Categories toggle={toggle} setCategoryName={setCategoryName} categories={categories} />
                 <Product products={products} />
             </div>
         </div>
