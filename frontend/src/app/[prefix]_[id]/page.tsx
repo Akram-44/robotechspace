@@ -42,7 +42,7 @@ const Page: React.FC<Props> = ({ searchParams }: Props) => {
     <Container className="flex items-center flex-col md:flex-row px-4 xl:px-0">
       <div className="leaf md:bg-none rounded-[.5rem] bg-fixed w-full md:w-1/2 overflow-hidden bg-zinc-50 md:bg-transparent flex items-center justify-center p-5">
         <Image
-          src={`http://127.0.0.1:1337${product?.attributes?.image?.data[0]?.attributes?.url || ""}`}
+          src={`http://127.0.0.1:1337${product?.attributes?.image?.data?.attributes?.url || ""}`}
           alt="product image"
           width={500}
           height={500}
@@ -87,7 +87,7 @@ const Page: React.FC<Props> = ({ searchParams }: Props) => {
           Quantity:{" "}
           <span className="font-semibold">{product?.attributes?.quantity}</span>
         </p>
-        <p className="">{prefix === 'pr' ? product?.attributes?.description[0].children[0].text : product?.attributes?.description}</p>
+        <p className="">{ product?.attributes?.description}</p>
       </div>
     </Container>
   );

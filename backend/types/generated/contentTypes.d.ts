@@ -846,6 +846,48 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   };
 }
 
+export interface ApiPrintServicePrintService extends Schema.CollectionType {
+  collectionName: 'print_services';
+  info: {
+    singularName: 'print-service';
+    pluralName: 'print-services';
+    displayName: 'printService';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    price: Attribute.Decimal & Attribute.Required;
+    previousPrice: Attribute.Decimal;
+    quantity: Attribute.Integer &
+      Attribute.SetMinMax<{
+        min: 1;
+        max: 1;
+      }>;
+    description: Attribute.Text;
+    isNew: Attribute.Boolean;
+    brand: Attribute.String;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::print-service.print-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::print-service.print-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -951,6 +993,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::category.category': ApiCategoryCategory;
       'api::course.course': ApiCourseCourse;
+      'api::print-service.print-service': ApiPrintServicePrintService;
       'api::product.product': ApiProductProduct;
       'api::slider.slider': ApiSliderSlider;
     }

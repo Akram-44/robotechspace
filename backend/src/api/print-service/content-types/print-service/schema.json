@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "courses",
+  "collectionName": "print_services",
   "info": {
-    "singularName": "course",
-    "pluralName": "courses",
-    "displayName": "course",
+    "singularName": "print-service",
+    "pluralName": "print-services",
+    "displayName": "printService",
     "description": ""
   },
   "options": {
@@ -16,16 +16,20 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "text",
-      "required": true
-    },
     "price": {
       "type": "decimal",
       "required": true
     },
     "previousPrice": {
       "type": "decimal"
+    },
+    "quantity": {
+      "type": "integer",
+      "max": 1,
+      "min": 1
+    },
+    "description": {
+      "type": "text"
     },
     "isNew": {
       "type": "boolean"
@@ -34,21 +38,14 @@
       "type": "string"
     },
     "image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
-    },
-    "quantity": {
-      "type": "integer",
-      "required": true,
-      "max": 1,
-      "min": 1
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

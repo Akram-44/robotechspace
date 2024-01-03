@@ -10,6 +10,11 @@ export async function getProduct(id:number, prefix:string) {
       const response = await res.json();
       return response.data;
     }
+    if (prefix! === 'print') {
+      const res = await fetch(`http://127.0.0.1:1337/api/print-services/${id}?populate=*`);
+      const response = await res.json();
+      return response.data;
+    }
   } catch (error) {
     console.log(error);
   }

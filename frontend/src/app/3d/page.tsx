@@ -1,4 +1,5 @@
 import Container from "@/components/Container";
+import PrintServices from "@/components/PrintServices";
 import React from "react";
 const page = async () => {
 
@@ -8,9 +9,7 @@ const page = async () => {
         <h2 className="text-2xl font-bold">3D print</h2>
         <p>Get the Sensor you want</p>
       </div>
-      <p className="mt-4 text-zinc-500 font-semibold">
-        Showing all results
-      </p>
+      <PrintServices/>
     </Container>
   );
 };
