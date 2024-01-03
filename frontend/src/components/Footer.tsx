@@ -42,7 +42,7 @@ const Footer = () => {
       <div className="flex-2 flex-1 flex-1 mt-5 md:mt-0">
         <div className="border-b-[1px] pb-5 border-b-zinc-800">
           <span className="font-bold text-designColor">Quick Links</span>
-          <ul className="flex gap-8 pl-4 mt-3">
+          <ul className="flex gap-x-4 flex-wrap pl-4 mt-3">
             {navigation.map((item) => (
               <li key={item?._id}>
                 <Link href={item?.href}>

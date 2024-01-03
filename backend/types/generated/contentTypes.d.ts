@@ -774,6 +774,7 @@ export interface ApiAboutContentAboutContent extends Schema.CollectionType {
     singularName: 'about-content';
     pluralName: 'about-contents';
     displayName: 'about-content';
+    description: '';
   };
   options: {
     draftAndPublish: true;

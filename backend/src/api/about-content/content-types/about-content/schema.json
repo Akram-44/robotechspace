@@ -4,7 +4,8 @@
   "info": {
     "singularName": "about-content",
     "pluralName": "about-contents",
-    "displayName": "about-content"
+    "displayName": "about-content",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +22,8 @@
       "type": "string"
     },
     "link_url": {
-      "type": "string"
+      "type": "string",
+      "regex": "^\\/[a-zA-Z0-9_-]+(?:\\/[a-zA-Z0-9_-]+)*$"
     }
   }
 }

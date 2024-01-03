@@ -28,7 +28,8 @@
     },
     "link_url": {
       "type": "string",
-      "required": true
+      "required": true,
+      "regex": "^\\/[a-zA-Z0-9_-]+(?:\\/[a-zA-Z0-9_-]+)*$"
     },
     "link_text": {
       "type": "string"
