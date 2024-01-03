@@ -41,7 +41,7 @@ const Wish = () => {
                                             className="flex items-center gap-3"
                                         >
                                             <Image
-                                                src={`http://127.0.0.1:1337${item?.attributes?.image?.data?.attributes?.url}`}
+                                                src={item?.attributes?.image?.data?.attributes?.url ? `http://127.0.0.1:1337${item?.attributes?.image?.data?.attributes?.url}` : ""}
                                                 alt="proudct image"
                                                 width={500}
                                                 height={500}
@@ -56,7 +56,7 @@ const Wish = () => {
                                         </td>
                                         <td className="">
                                             <div className=" flex justify-center items-center gap-3">
-                                            <Link className="hover:text-designColor" href={{ pathname: `/${item?.id}`, query: { id: item?.id } }}>
+                                                <Link className="hover:text-designColor" href={{ pathname: `/${item?.id}`, query: { id: item?.id } }}>
                                                     <Link2Icon />
                                                 </Link>
                                                 <X
@@ -68,7 +68,7 @@ const Wish = () => {
                                                     }}
                                                     className="w-4 h-4 hover:text-red-600 cursor-pointer duration-200"
                                                 />
-                                               
+
                                             </div>
                                         </td>
 

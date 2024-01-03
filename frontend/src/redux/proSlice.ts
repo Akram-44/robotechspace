@@ -25,30 +25,31 @@ export const proSlice = createSlice({
       );
 
       if (existingProduct) {
-        existingProduct.quantity += action.payload.quantity;
+        console.log('exist',existingProduct)
+        existingProduct.attributes.quantity += action.payload.attributes.quantity;
       } else {
         state.productData.push(action.payload);
       }
     },
     increaseQuantity: (state, action) => {
       const existingProduct = state.productData.find(
-        (item: ProductType) => item?.id === action.payload.id
+        (item: ProductType) => item?.id === action.payload.id && item?.attributes.title === action.payload.attributes.title
       );
       existingProduct && existingProduct.attributes.quantity++;
     },
     decreaseQuantity: (state, action) => {
       const existingProduct = state.productData.find(
-        (item: ProductType) => item?.id === action.payload.id
+        (item: ProductType) => item?.id === action.payload.id && item?.attributes.title === action.payload.attributes.title
       );
-      if (existingProduct?.quantity === 1) {
-        existingProduct.quantity = 1;
+      if (existingProduct?.attributes.quantity === 1) {
+        existingProduct.attributes.quantity = 1;
       } else {
         existingProduct && existingProduct.attributes.quantity--;
       }
     },
     deleteProduct: (state, action) => {
       state.productData = state.productData.filter(
-        (item) => item.id !== action.payload
+        (item) => item.id !== action.payload.id && item.attributes.title !== action.payload.title
       );
     },
     resetCart: (state) => {
