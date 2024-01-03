@@ -14,12 +14,12 @@ export const POST = async (request: NextRequest) => {
         unit_amount: item?.attributes?.price * 100,
         product_data: {
           name: item?.attributes?.title,
-          description: item?.attributes?.description ,
-          images: [`http://127.0.0.1:1337${item?.attributes?.image?.data[0]?.attributes?.url}`],
+          // description: item?.attributes?.description ,
+          // images: [`http://127.0.0.1:1337${item?.attributes?.image?.data[0]?.attributes?.url}`],
         },
       },
     }));
-
+    // console.log('extracting',extractingItems.price_data.product_data);
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: extractingItems,

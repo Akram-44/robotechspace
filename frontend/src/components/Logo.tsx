@@ -1,7 +1,8 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image"; // Import the Image component
-import logo from '@/assets/shop/logo.png';
+import ShortLogo from '@/assets/ShortLogo.png';
+import DetailedLogo from '@/assets/DetailedLogo.png';
 
 interface Props {
   className?: string;
@@ -14,7 +15,8 @@ const Logo = ({ className, spanClassName }: Props) => {
       "text-zinc-950 text-xl underline underline-offset-4 decoration-[1px] group",
       className
     )}>
-      <Image src={logo} alt="Logo" width={70} height={50} />
+      <Image className="lg:hidden" src={ShortLogo} alt="ShortLogo" width={70} height={50} />
+      <Image className="hidden lg:inline-block" src={DetailedLogo} alt="DetailedLogo" width={150} height={50} />
 
     </Link>
   );
