@@ -1,5 +1,4 @@
 'use client'
-import { getCourses } from '@/helpers/getCourses';
 import React, { useEffect, useState } from 'react'
 import Product from './Product';
 import { getPrintServices } from '@/helpers/getPrintServices';
@@ -10,8 +9,8 @@ function PrintServices() {
     useEffect(() => {
         const fetchPrintServices = async () => {
             try {
-                const coursesList = await getPrintServices();
-                setServices(coursesList);
+                const printServices = await getPrintServices();
+                setServices(printServices);
             } catch (error) {
                 console.error("Error fetching products:", error);
             }

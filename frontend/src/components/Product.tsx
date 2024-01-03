@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Link from "next/link";
 import { ProductType, StateProps } from "../../type";
 import Image from "next/image";
-import { Heart, ChevronLeft, ChevronRight } from "lucide-react";
+import { Heart } from "lucide-react";
 import FormattedPrice from "./FormattedPrice";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, addToFavorite } from "@/redux/proSlice";
@@ -15,12 +15,12 @@ interface Item {
 }
 
 const Product = ({ products, prefix }: Item) => {
-
   const { favoriteData } = useSelector((state: StateProps) => state.pro);
   const isFavorite = (productId: any) => {
     return favoriteData.some((favoriteItem) => favoriteItem.id === productId);
   };
   const dispatch = useDispatch();
+
   return (
     <div className=' max-h-[800px] flex-1 overflow-y-auto'>
       <div className="flex flex-wrap gap-6 mt-5 mx-auto">
@@ -60,6 +60,7 @@ const Product = ({ products, prefix }: Item) => {
               <div className="flex items-center justify-between text-sm mt-2">
                 <button
                   onClick={() => {
+                    console.log(item)
                     dispatch(addToCart(item)),
                       toast.success(`${item?.attributes?.title} is added to Cart!`);
                   }}

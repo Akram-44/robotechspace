@@ -21,7 +21,7 @@ export const proSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const existingProduct = state.productData.find(
-        (item: ProductType) => item?.id === action.payload.id
+        (item: ProductType) => item?.id === action.payload.id && item?.attributes.title === action.payload.attributes.title
       );
 
       if (existingProduct) {
