@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Slider, { Settings } from "react-slick";
-import { sliderOne, sliderTwo, sliderFour } from "@/assets";
 import Image from "next/image";
 import { Clock, Smartphone, Map, MailPlus } from "lucide-react";
 import { getSlides } from "@/helpers/getSlides";
@@ -121,7 +120,7 @@ const Banner: React.FC<BannerProps> = () => {
             </div>
           ))}
       </Slider>
-      <div className=" rounded-sm h-20 absolute left-1/2 -bottom-10 transform -translate-x-1/2 hidden lg:inline-flex items-center gap-x-12 p-10">
+      <div className="mb-5 rounded-sm h-20 absolute left-1/2 -bottom-10 transform -translate-x-1/2 hidden lg:inline-flex items-center gap-x-12 p-10">
         <div className="border border-b-designColor rounded-sm h-20 bg-white absolute left-1/2 -bottom-10 transform -translate-x-1/2 hidden lg:inline-flex items-center gap-x-12 p-10">
           <div className="flex items-center gap-5 w-60">
             <Clock className="text-designColor w-8 h-8" />

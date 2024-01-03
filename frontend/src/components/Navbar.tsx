@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Logo from "./Logo";
-import { Heart, ShoppingBagIcon } from "lucide-react";
+import { Headphones, Heart, ShoppingBagIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { navigation } from "@/constants/data";
 import { allProducts } from '../app/api/data'
@@ -131,6 +131,7 @@ const Navbar = () => {
               {productData ? productData.length : 0}
             </span>
           </Link>
+        
           {/* {session ? (
             <Link
               href={"/profile"}

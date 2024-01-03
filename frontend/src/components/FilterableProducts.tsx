@@ -29,11 +29,11 @@ function FilterableProducts({ categories }) {
 
 
     return (
-        <div>
+        <div className='mt-5'>
             <div className='lg:hidden inline-block cursor-pointer border border-zinc-300 p-1 inline-block' onClick={()=>setToggle(!toggle)}>
                 <AlignJustify />
             </div>
-            <div className="relative flex gap-4 m-auto ">
+            <div className="relative mt-5 flex gap-4 m-auto ">
                 <Categories toggle={toggle} setCategoryName={setCategoryName} categories={categories} />
                 <Product prefix={'pr'} products={products} />
             </div>

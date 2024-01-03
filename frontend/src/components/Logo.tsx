@@ -9,7 +9,7 @@ interface Props {
   spanClassName?: string;
 }
 
-const Logo = ({ className, spanClassName }: Props) => {
+const Logo = ({ className }: Props) => {
   return (
     <Link href="/" className={cn(
       "text-zinc-950 text-xl underline underline-offset-4 decoration-[1px] group",
@@ -17,7 +17,6 @@ const Logo = ({ className, spanClassName }: Props) => {
     )}>
       <Image className="lg:hidden" src={ShortLogo} alt="ShortLogo" width={70} height={50} />
       <Image className="hidden lg:inline-block" src={DetailedLogo} alt="DetailedLogo" width={150} height={50} />
-
     </Link>
   );
 };
