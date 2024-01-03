@@ -15,7 +15,7 @@ export const POST = async (request: NextRequest) => {
         product_data: {
           name: item?.attributes?.title,
           // description: item?.attributes?.description ,
-          // images: [`http://127.0.0.1:1337${item?.attributes?.image?.data[0]?.attributes?.url}`],
+          images: [`http://127.0.0.1:1337${item?.attributes?.image?.data?.attributes?.url}`],
         },
       },
     }));

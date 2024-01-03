@@ -137,7 +137,7 @@ const Cart = () => {
                         className="w-4 h-4 hover:text-red-600 cursor-pointer duration-200"
                       />
                       <Image
-                        src={`http://127.0.0.1:1337${item?.attributes?.image?.data[0]?.attributes?.url || ""}`}
+                        src={`http://127.0.0.1:1337${item?.attributes?.image?.data?.attributes?.url || ""}`}
                         alt="proudct image"
                         width={500}
                         height={500}

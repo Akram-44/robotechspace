@@ -7,7 +7,6 @@ const page = async () => {
     <Container>
       <div className="border-b-[1px] border-b-zinc-400 pb-4 flex items-center justify-between">
         <h2 className="text-2xl font-bold">About</h2>
-        <p>Get the ICs you want</p>
       </div>
       <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
         <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
@@ -176,13 +175,6 @@ const page = async () => {
               </h6>
               <p className="mb-3 text-sm text-gray-900">
                 At Robotech, our commitment to excellence extends beyond our products and services. Our Contact & Support service is here to ensure you have a seamless experience and answers to any questions you may have. Whether you need assistance with product inquiries, technical support, or just want to share your feedback, our dedicated team is ready to assist you. We believe in building lasting connections with our customers, and our Contact & Support service is a testament to our commitment to your satisfaction.
-
-
-
-
-
-
-
               </p>
               <Link
                 href="/support"
@@ -190,7 +182,7 @@ const page = async () => {
                 className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
               >
                 Support
-              </Li>
+              </Link>
             </div>
           </div>
         </div>
