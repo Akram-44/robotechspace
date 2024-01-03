@@ -846,6 +846,30 @@ export interface ApiCourseCourse extends Schema.CollectionType {
   };
 }
 
+export interface ApiFaqFaq extends Schema.CollectionType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'faq';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    question: Attribute.String & Attribute.Required;
+    answer: Attribute.Text & Attribute.Required;
+    open: Attribute.Boolean & Attribute.DefaultTo<false>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPrintServicePrintService extends Schema.CollectionType {
   collectionName: 'print_services';
   info: {
@@ -993,6 +1017,7 @@ declare module '@strapi/types' {
       'plugin::i18n.locale': PluginI18NLocale;
       'api::category.category': ApiCategoryCategory;
       'api::course.course': ApiCourseCourse;
+      'api::faq.faq': ApiFaqFaq;
       'api::print-service.print-service': ApiPrintServicePrintService;
       'api::product.product': ApiProductProduct;
       'api::slider.slider': ApiSliderSlider;

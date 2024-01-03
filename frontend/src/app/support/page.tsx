@@ -1,6 +1,6 @@
 
 import Container from "@/components/Container";
-import SupportComponent from "@/components/supportComponent";
+import SupportComponent from "@/components/SupportComponent";
 import React from "react";
 const page = async () => {
   return (
