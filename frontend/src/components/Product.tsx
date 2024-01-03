@@ -23,7 +23,7 @@ const Product = ({ products, prefix }: Item) => {
   const dispatch = useDispatch();
   return (
     <div className=' max-h-[800px] flex-1 overflow-y-auto'>
-      <div className="flex flex-wrap gap-6 mt-5 justify-center">
+      <div className="flex flex-wrap gap-6 mt-5 mx-auto">
         {products?.map((item) => (
           <div
             key={item.id}

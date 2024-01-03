@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     
   <div className="bg-zinc-900 text-zinc-300">
-    <Container className="md:flex gap-3 py-5 justify-between">
+    <Container className="md:flex gap-3 py-5 px-0 justify-between">
       <div className="flex-1 items-center justify-between">
         <div className="bg-zinc-800 md:bg-transparent rounded-[.5rem] md:rounded-0 p-3 py-5 md:p-1 flex flex-col items-center justify-center md:items-start">
           <Logo className="mb-3 text-white bg-slate-200 rounded-full h-20 w-20 flex items-center justify-center" spanClassName="bg-white text-black" />

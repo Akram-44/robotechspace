@@ -6,8 +6,8 @@ const page = async () => {
   return (
     <Container>
       <div className="border-b-[1px] border-b-zinc-400 pb-4 flex items-center justify-between">
-        <h2 className="font-bold text-2xl">Contact</h2>
-        <p>Get the wireless components you want</p>
+        <h2 className="font-bold text-2xl">FAQ</h2>
+        <p>At our Help Center, discover answers to frequently asked questions.</p>
       </div>
 
       <SupportComponent />

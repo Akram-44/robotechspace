@@ -1,5 +1,5 @@
 import Container from "@/components/Container";
-import AboutComponent from "@/components/aboutComponent";
+import AboutComponent from "@/components/AboutComponent";
 import Link from "next/link";
 import React from "react";
 
