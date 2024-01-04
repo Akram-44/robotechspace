@@ -37,7 +37,7 @@ const ConfettiComponent: React.FC = () => {
 
     // Cleanup the interval when the component unmounts
     return () => clearInterval(interval);
-  }, []); // Empty dependency array ensures the effect runs once on mount
+  }); // Empty dependency array ensures the effect runs once on mount
 
   return <div className="confetti-container"></div>;
 };
