@@ -1,6 +1,6 @@
 export async function getPrintServices() {
     try {
-      const res = await fetch(`http://localhost:1337/api/print-services?populate=*`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/print-services?populate=*`);
       const response = await res.json();
       return response.data;
     } catch (error) {
