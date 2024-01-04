@@ -61,7 +61,7 @@ const Wish = () => {
                                                 </Link>
                                                 <X
                                                     onClick={() => {
-                                                        dispatch(deleteFavorite(item?.id)),
+                                                        dispatch(deleteFavorite(item)),
                                                             toast.success(
                                                                 `${item?.attributes?.title} is removed from Wishlist!`
                                                             );

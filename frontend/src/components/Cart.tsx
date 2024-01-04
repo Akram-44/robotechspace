@@ -129,7 +129,7 @@ const Cart = () => {
                     >
                       <X
                         onClick={() => {
-                          dispatch(deleteProduct(item?.id)),
+                          dispatch(deleteProduct(item)),
                             toast.success(
                               `${item?.attributes?.title} is removed from Wishlist!`
                             );

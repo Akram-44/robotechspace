@@ -49,7 +49,10 @@ export const proSlice = createSlice({
     },
     deleteProduct: (state, action) => {
       state.productData = state.productData.filter(
-        (item) => item.id !== action.payload.id && item.attributes.title !== action.payload.title
+        (item) => {
+          console.log(item.attributes.title)
+          return !(item.id === action.payload.id && item.attributes.title === action.payload.attributes.title)
+        }
       );
     },
     resetCart: (state) => {
@@ -57,11 +60,11 @@ export const proSlice = createSlice({
     },
     addToFavorite: (state, action) => {
       const existingProduct = state.favoriteData.find(
-        (item: ProductType) => item.id === action.payload.id
+        (item: ProductType) => item?.id === action.payload.id && item?.attributes.title === action.payload.attributes.title
       );
       if (existingProduct) {
         state.favoriteData = state.favoriteData.filter(
-          (item) => item.id !== action.payload.id
+          (item) => !(item.id === action.payload.id && item.attributes.title === action.payload.attributes.title)
         );
       } else {
         state.favoriteData.push(action.payload);
@@ -69,7 +72,7 @@ export const proSlice = createSlice({
     },
     deleteFavorite: (state, action) => {
       state.favoriteData = state.favoriteData.filter(
-        (item) => item.id !== action.payload
+        (item) => !(item.id === action.payload.id && item.attributes.title === action.payload.attributes.title)
       );
     },
     resetFavorite: (state) => {
