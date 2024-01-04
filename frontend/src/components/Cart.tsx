@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ProductType, StateProps } from "../../type";
-import { Minus, Plus, X, RefreshCw } from "lucide-react";
+import { Minus, Plus, X , RefreshCw } from "lucide-react";
 import {
   decreaseQuantity,
   deleteProduct,
@@ -20,7 +20,6 @@ import { loadStripe } from "@stripe/stripe-js";
 // import AddToCartImg from "@/assets/shop/add_to_cart.png"
 const Cart = () => {
   const [totalAmt, setTotalAmt] = useState(0);
-  const [productQuantity, setProductQuantity] = useState(0);
   const [isCheckout, setIsCheckout] = useState(false);
   const [rowPrice, setRowPrice] = useState(0);
   const { productData } = useSelector((state: StateProps) => state.pro);
@@ -126,8 +125,9 @@ const Cart = () => {
                     <th
                       scope="row"
                       className="px-6 py-4 flex items-center gap-3"
+                      style={{width: 'max-content'}}
                     >
-                      <X
+                      <X 
                         onClick={() => {
                           dispatch(deleteProduct(item)),
                             toast.success(
@@ -143,7 +143,7 @@ const Cart = () => {
                         height={500}
                         className="w-24 object-contain"
                       />
-                      <p className="text-base font-medium text-black">
+                      <p className="text-base font-medium text-black whitespace-nowrap">
                         {item?.attributes?.title}
                       </p>
                     </th>
