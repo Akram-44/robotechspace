@@ -102,7 +102,7 @@ const Banner: React.FC<BannerProps> = () => {
             >
               <div className="w-full lg:w-1/3 flex items-center justify-center lg:inline-block h-[200px] lg:h-full bg-zinc-800 lg:bg-designColor z-0 relative">
                 <Image
-                  src={`http://127.0.0.1:1337${slide?.attributes?.image?.data?.attributes?.url}`}
+                  src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${slide?.attributes?.image?.data?.attributes?.url}`}
                   width={200}
                   height={200}
                   alt="sliderone"

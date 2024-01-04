@@ -30,7 +30,7 @@ const Product = ({ products, prefix }: Item) => {
           >
             <Link href={{ pathname: `/id_${item?.id}`, query: { id: item?.id, prefix: prefix } }}>
               <Image
-                src={`http://127.0.0.1:1337${item?.attributes?.image?.data?.attributes?.url}`}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_URL}${item?.attributes?.image?.data?.attributes?.url}`}
                 alt="Product image"
                 width={200}
                 height={300}

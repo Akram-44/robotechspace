@@ -41,7 +41,7 @@ const Wish = () => {
                                             className="flex items-center gap-3"
                                         >
                                             <Image
-                                                src={item?.attributes?.image?.data?.attributes?.url ? `http://127.0.0.1:1337${item?.attributes?.image?.data?.attributes?.url}` : ""}
+                                                src={item?.attributes?.image?.data?.attributes?.url ? `${process.env.NEXT_PUBLIC_STRAPI_URL}${item?.attributes?.image?.data?.attributes?.url}` : ""}
                                                 alt="proudct image"
                                                 width={500}
                                                 height={500}
